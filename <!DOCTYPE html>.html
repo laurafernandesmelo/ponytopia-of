@@ -1337,21 +1337,20 @@
         }
 
         function carregarHome() {
-            document.getElementById('main-app').style.display = 'block';
-            document.getElementById('home-user-name').innerText = usuarioAtual.nome;
-            document.getElementById('saudacao-nome').innerText = usuarioAtual.nome;
-            document.getElementById('home-avatar').src = poneyMap[usuarioAtual.poney];
+    document.getElementById('main-app').style.display = 'block';
 
-            /*
-                Antes o primeiro código abria o modal simples "Presente Real".
-                Agora ele abre a recompensa diária completa do segundo código.
-                O modal antigo foi mantido no HTML e a função fecharRecompensa continua abaixo.
-            */
-            inicializar();
-            if (!jaAbriuHoje()) {
-                setTimeout(() => abrirRecompensaDiaria(), 1000);
-            }
-        }
+    document.getElementById('home-user-name').innerText = usuarioAtual.nome;
+    document.getElementById('saudacao-nome').innerText = usuarioAtual.nome;
+    document.getElementById('home-avatar').src = poneyMap[usuarioAtual.poney];
+
+    carregarColecaoUsuario();
+
+    inicializar();
+
+    if (!jaAbriuHoje()) {
+        setTimeout(() => abrirRecompensaDiaria(), 1000);
+    }
+}
 
         function toggleMenu() {
             document.getElementById("menu-lat").classList.toggle("ativo");
@@ -1437,8 +1436,20 @@
         const modalNome = document.getElementById('modal-nome');
 
         let cliques = 0;
-        let colecaoUsuario = JSON.parse(localStorage.getItem('mlp_colecao')) || [];
+        let colecaoUsuario = [];
 
+function chaveColecao() {
+    return 'mlp_colecao_' + usuarioAtual.nome;
+}
+
+function chavePacote() {
+    return 'mlp_ultimo_pacote_' + usuarioAtual.nome;
+}
+
+function carregarColecaoUsuario() {
+    colecaoUsuario =
+        JSON.parse(localStorage.getItem(chaveColecao())) || [];
+}
         function abrirRecompensaDiaria() {
             inicializar();
             rewardOverlay.classList.add('ativo');
@@ -1449,10 +1460,10 @@
             fecharModal();
         }
 
-        function jaAbriuHoje() {
-            const hoje = new Date().toDateString();
-            return hoje === localStorage.getItem('mlp_ultimo_pacote');
-        }
+       function jaAbriuHoje() {
+    const hoje = new Date().toDateString();
+    return hoje === localStorage.getItem(chavePacote());
+}
 
         function inicializar() {
             renderizarAlbum();
@@ -1507,7 +1518,7 @@
         }
 
         function resetarTeste() {
-            localStorage.removeItem('mlp_ultimo_pacote');
+          localStorage.removeItem(chavePacote());
             cliques = 0;
             container.classList.remove('stage-1', 'stage-2', 'stage-3', 'stage-4', 'show-reward');
             chestBox.classList.remove('open-chest');
@@ -1594,9 +1605,15 @@
                     displayCartas.appendChild(wrapper);
                 }
 
-                localStorage.setItem('mlp_colecao', JSON.stringify(colecaoUsuario));
-                localStorage.setItem('mlp_ultimo_pacote', new Date().toDateString());
+                localStorage.setItem(
+    chaveColecao(),
+    JSON.stringify(colecaoUsuario)
+);
 
+localStorage.setItem(
+    chavePacote(),
+    new Date().toDateString()
+);
                 setTimeout(() => {
                     pacote.style.display = 'none';
                     container.classList.add('show-reward');
@@ -1613,4 +1630,3 @@
     </script>
 </body>
 </html>
-guarde
