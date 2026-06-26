@@ -11,8 +11,8 @@
   body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     
-    /* SEU NOVO FUNDO CONFIGURADO VIA LINK DA INTERNET */
-    background: linear-gradient(135deg, #fce4ec 0%, #f3e5f5 50%, #e0f7fa 100%), url('https://wallpapercave.com/wp/pqc0BwA.jpg');
+    /* SUA NOVA IMAGEM DE FUNDO GRANDONA CONFIGURADA ABAIXO NO BODY */
+    background: linear-gradient(135deg, rgba(252, 228, 236, 0.4) 0%, rgba(243, 229, 245, 0.4) 50%, rgba(224, 247, 250, 0.4) 100%), url('https://wallpapers.com/images/hd/desktop-my-little-pony-1920-x-1080-rqscdnok7aji7n5c.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -133,6 +133,22 @@
 
 <body>
 
+    <button onclick="window.location.href='index.html'" style="
+        position: fixed;
+        top: 15px;
+        left: 15px;
+        z-index: 9999;
+        background: #6a1b9a;
+        color: white;
+        padding: 12px 18px;
+        border-radius: 20px;
+        border: none;
+        font-weight: bold;
+        cursor: pointer;
+    ">
+        ⬅ Voltar para Home
+    </button>
+
 <div id="quiz-box">
   <div id="conteudo-quiz">
     <h2 id="pergunta"></h2>
@@ -151,7 +167,6 @@
 
 <script>
 const infoPonies = {
-  /* TODOS OS NOVOS LINKS CONFIGURADOS ABAIXO */
   twilight: { nome: "Twilight Sparkle", img: "https://www.nicepng.com/png/full/156-1567083_twilight-sparkle-my-little-pony-twilight-sparkle-unicorn.png", desc: "Você é movido pela lógica, organização e adora aprender coisas novas!" },
   rainbow: { nome: "Rainbow Dash", img: "https://www.nicepng.com/png/full/218-2186731_rainbow-dash-png-hd-my-little-pony-the.png", desc: "Você é corajoso, competitivo e extremamente leal aos seus amigos." },
   pinkie: { nome: "Pinkie Pie", img: "https://www.pngarts.com/files/3/Pinkie-Pie-PNG-Transparent-Image.png", desc: "Sua missão é espalhar alegria! Você é a alma da festa e muito otimista." },
@@ -165,7 +180,7 @@ const infoPonies = {
 let perguntas = [
   { q:"Você gosta de aprender coisas novas?", t:"twilight" },
   { q:"Você gosta de competir?", t:"rainbow" },
-  { q:"Você gosta de festas?", t:"pinkie" },
+  { q:"Você gosta de festa?", t:"pinkie" },
   { q:"Você prefere calma?", t:"fluttershy" },
   { q:"Você gosta de moda?", t:"rarity" },
   { q:"Você é honesto?", t:"applejack" },
@@ -243,11 +258,7 @@ function mostrarResultado() {
       <h1 style="color:#c2185b; font-size:35px; margin:10px 0;">${p.nome}</h1>
       <img src="${p.img}" class="pony-img" alt="${p.nome}">
       <p style="font-size:18px; color:#4a148c; font-weight:500; padding:10px;">${p.desc}</p>
-    <button onclick="location.reload()">Refazer Quiz</button>
-
-<button onclick="window.location.href='index.html'">
-Voltar ao Ponytopia
-</button>
+      <button onclick="location.reload()">Refazer Quiz</button>
     </div>
   `;
 }
