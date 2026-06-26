@@ -1461,7 +1461,7 @@
         <a href="#" onclick="abrirMapaEquestria(); toggleMenu();"><span>🗺️</span> Mapa de Equestria</a>
         <a href="#"><span>🌈</span> Galeria de Arte</a>
         <a href="#" onclick="abrirQuiz(); toggleMenu();"><span>🧠</span> Teste de Elementos</a>
-        <a href="#"><span>📖</span> Diário Mágico</a>
+        <a href="#" onclick="abrirPonyColor(); toggleMenu();"><span>📖</span> Diário Mágico</a>
         <a href="#" onclick="abrirRecompensaDiaria(); toggleMenu();"><span>🎁</span> Recompensa Diária</a>
         <h3>⚙️ Perfil</h3>
         <a href="#">Personalizar Pônei</a>
@@ -1495,10 +1495,13 @@
                 <span>Teste de Personalidade</span>
             </div>
 
-            <div class="jogo-card" data-nome="diario sentimentos" data-cat="social">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfsKVElxJR57blusabDhZZgE8RK7COxWgPqowcREHKQ9etkKq3qQT2MfTBAOz0BaqwiXMGaVUsYR5XOHF3mAKRrQxPjIOuhl1ixwRp9JGF&s=10">
-                <span>Diário de Amizade</span>
-            </div>
+           <div class="jogo-card" data-nome="diario sentimentos pintura ponycolor" data-cat="social" onclick="abrirPonyColor()">
+
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfsKVElxJR57blusabDhZZgE8RK7COxWgPqowcREHKQ9etkKq3qQT2MfTBAOz0BaqwiXMGaVUsYR5XOHF3mAKRrQxPjIOuhl1ixwRp9JGF&s=10">
+
+<span>Diário de Amizade</span>
+
+</div>
 
             <div class="jogo-card" data-nome="vestir raridade" data-cat="aventura" onclick="abrirBoutiqueRarity()">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrX51t_lIv-XJw9lQHe2lkAWGZm6KBkOwrOIpBtnouBpYVWuQsaNGJvRgkhcnROL70xYvyWXk8IYnGdfxp51X6651Mkn2nq1vQg8R3jAWe&s=10">
@@ -2151,7 +2154,7 @@
         boutiqueRenderClothes();
     }
 
-    function boutiqueRenderClothes() {
+   function boutiqueRenderClothes() {
         const containerBoutique = document.getElementById("clothes");
         containerBoutique.innerHTML = "";
 
@@ -2171,8 +2174,11 @@
     function abrirQuiz() {
         window.location.href = "quiz.html";
     }
+
+    function abrirPonyColor() {
+        window.location.href = "ponycolor.html";
+    }
 </script>
-```
 
 </body>
 </html>
