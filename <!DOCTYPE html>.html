@@ -1,4 +1,4 @@
-index.html
+
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -1354,10 +1354,15 @@ index.html
                     <span>Explorar Mapa</span>
                 </div>
 
-                <div class="jogo-card" data-nome="quiz elementos" data-cat="quiz">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLcS6NnetzUhMydMsgoVqH--MRvgEEOdM2pB8zBA2XFxGw68DoST-Honi6jydIv-1jm7eHEaLX_DptXWURHIAJ8tr3z4BCihCgEUMnGMpvoQ&s=10">
-                    <span>Teste de Personalidade</span>
-                </div>
+               <div class="jogo-card"
+     data-nome="quiz elementos"
+     data-cat="quiz"
+     onclick="abrirQuiz()">
+
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLcS6NnetzUhMydMsgoVqH--MRvgEEOdM2pB8zBA2XFxGw68DoST-Honi6jydIv-1jm7eHEaLX_DptXWURHIAJ8tr3z4BCihCgEUMnGMpvoQ&s=10">
+
+    <span>Teste de Personalidade</span>
+</div>
 
                 <div class="jogo-card" data-nome="diario sentimentos" data-cat="social">
                     <img src= "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfsKVElxJR57blusabDhZZgE8RK7COxWgPqowcREHKQ9etkKq3qQT2MfTBAOz0BaqwiXMGaVUsYR5XOHF3mAKRrQxPjIOuhl1ixwRp9JGF&s=10">
@@ -1914,7 +1919,9 @@ index.html
         function boutiqueDress(item) {
             document.getElementById("ponyDisplay").innerText = boutiqueSelectedPony + "\n👗\n" + item;
         }
-
+function abrirQuiz() {
+    window.location.href = "quiz.html";
+}
     </script>
 </body>
 </html>
